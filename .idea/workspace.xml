@@ -4,7 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="bb4b6ecb-41fa-4ca6-b578-30c09495ecca" name="Changes" comment="" />
+    <list default="true" id="bb4b6ecb-41fa-4ca6-b578-30c09495ecca" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -22,6 +24,13 @@
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
+  </component>
+  <component name="MavenImportPreferences">
+    <option name="generalSettings">
+      <MavenGeneralSettings>
+        <option name="useMavenConfig" value="true" />
+      </MavenGeneralSettings>
+    </option>
   </component>
   <component name="ProjectId" id="2Lg08niCWV0CLykBi20y9PLHaqc" />
   <component name="ProjectViewState">
@@ -44,7 +53,7 @@
   <component name="RunManager">
     <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="main.Main" />
-      <module name="maven-console-chess" />
+      <module name="myChess" />
       <extension name="coverage">
         <pattern>
           <option name="PATTERN" value="main.*" />
@@ -74,6 +83,8 @@
       <workItem from="1676297378248" duration="611000" />
       <workItem from="1676299165182" duration="1447000" />
       <workItem from="1676745524487" duration="383000" />
+      <workItem from="1676746344027" duration="131000" />
+      <workItem from="1676746485015" duration="25000" />
     </task>
     <servers />
   </component>
