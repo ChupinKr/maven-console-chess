@@ -1,7 +1,6 @@
 package model;
 
 import java.util.ArrayList;
-import java.util.List;
 import java.util.Random;
 
 
@@ -14,29 +13,29 @@ public class Board {
     public Board(){
         //add black figures on start game
         blackFigs = new ArrayList<Figure>();
-        blackFigs.add(new Figure('b', 1, 8, "castle"));
-        blackFigs.add(new Figure('b', 2, 8, "knight"));
-        blackFigs.add(new Figure('b', 3, 8, "bishop"));
-        blackFigs.add(new Figure('b', 4, 8, "queen"));
-        blackFigs.add(new Figure('b', 5, 8, "king"));
-        blackFigs.add(new Figure('b', 6, 8, "bishop"));
-        blackFigs.add(new Figure('b', 7, 8, "knight"));
-        blackFigs.add(new Figure('b', 8, 8, "castle"));
+        blackFigs.add(new Castle('b', 1, 8, "castle", '♜'));
+        blackFigs.add(new Knight('b', 2, 8, "knight", '♞'));
+        blackFigs.add(new Bishop('b', 3, 8, "bishop", '♝'));
+        blackFigs.add(new Queen('b', 4, 8, "queen", '♛'));
+        blackFigs.add(new King('b', 5, 8, "king", '♚'));
+        blackFigs.add(new Bishop('b', 6, 8, "bishop", '♝'));
+        blackFigs.add(new Knight('b', 7, 8, "knight", '♞'));
+        blackFigs.add(new Castle('b', 8, 8, "castle", '♜'));
         for(int i = 1; i < 9; i++){
-            blackFigs.add(new Figure('b', i, 7, "pawn"));
+            blackFigs.add(new Pawn('b', i, 7, "pawn", '♟'));
         }
         //add white figures on start game
         whiteFigs = new ArrayList<Figure>();
-        whiteFigs.add(new Figure('w',1, 1, "castle"));
-        whiteFigs.add(new Figure('w',2, 1, "knight"));
-        whiteFigs.add(new Figure('w',3, 1, "bishop"));
-        whiteFigs.add(new Figure('w',4, 1, "queen"));
-        whiteFigs.add(new Figure('w',5, 1, "king"));
-        whiteFigs.add(new Figure('w',6, 1, "bishop"));
-        whiteFigs.add(new Figure('w',7, 1, "knight"));
-        whiteFigs.add(new Figure('w',8, 1, "castle"));
+        whiteFigs.add(new Castle('w',1, 1, "castle", '♖'));
+        whiteFigs.add(new Knight('w',2, 1, "knight", '♘'));
+        whiteFigs.add(new Bishop('w',3, 1, "bishop", '♗'));
+        whiteFigs.add(new Queen('w',4, 1, "queen", '♕'));
+        whiteFigs.add(new King('w',5, 1, "king", '♔'));
+        whiteFigs.add(new Bishop('w',6, 1, "bishop", '♗'));
+        whiteFigs.add(new Knight('w',7, 1, "knight", '♘'));
+        whiteFigs.add(new Castle('w',8, 1, "castle", '♖'));
         for(int i = 1; i < 9; i++){
-            whiteFigs.add(new Figure('w', i, 2, "pawn"));
+            whiteFigs.add(new Pawn('w', i, 2, "pawn", '♙'));
         }
     }
 
@@ -52,10 +51,10 @@ public class Board {
             }
         }
         if(posX > 8 || posY > 8 || posX < 1 || posY < 1){
-            return new Figure('n', posX, posY, "error");
+            return new NaF('n', posX, posY, "error", 'e');
         }
 
-        return new Figure('n', posX, posY, "empty");
+        return new NaF('n', posX, posY, "none", 'n');
     }
 
     public boolean moveAction(char color){
@@ -69,7 +68,7 @@ public class Board {
         while(myFigures.toArray().length > 0){
             int rand =  myFigures.toArray().length > 1 ? r.nextInt(myFigures.toArray().length - 1) : 0;
 
-            if(myFigures.get(rand).tryMoveFigure(this)){
+            if(myFigures.get(rand).moveFigure(this)){
                 //change queue move
                 if (color == 'w'){
                     move = 'b';
@@ -85,5 +84,6 @@ public class Board {
 
         return false;
     }
+
 
 }
