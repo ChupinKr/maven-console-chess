@@ -7,7 +7,7 @@ import java.util.Random;
 
 import static java.lang.Math.abs;
 
-public abstract class Figure {
+public abstract class Figure extends Logger{
     Random r = new Random();
     String type;
     public int positionX;
@@ -77,7 +77,7 @@ public abstract class Figure {
 
             Figure targetFigure = board.getFigureOnPosition(positionX, positionY);
 
-            System.out.println("Move: " + targetFigure.type + " XY:" + positionX + " " + positionY + " -> XY:" + randPosX + " " + randPosY);
+            System.out.println("Move: " + targetFigure.type + " : " + numToSymbPosX(positionX) + positionY + " -> " + numToSymbPosX(randPosX)  + randPosY);
 
             targetFigure.positionX = randPosX;
             targetFigure.positionY = randPosY;
@@ -89,5 +89,6 @@ public abstract class Figure {
         }
     }
     public abstract boolean moveFigure(Board board);
+
 }
 

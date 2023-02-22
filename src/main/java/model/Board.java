@@ -3,8 +3,9 @@ package model;
 import java.util.ArrayList;
 import java.util.Random;
 
+import static model.Logger.numToSymbPosX;
 
-public class Board {
+public class Board{
     Random r = new Random();
     ArrayList<Figure> blackFigs;
     ArrayList<Figure> whiteFigs;
@@ -12,7 +13,7 @@ public class Board {
     public char move = 'w';
     public Board(){
         //add black figures on start game
-        blackFigs = new ArrayList<Figure>();
+        blackFigs = new ArrayList<>();
         blackFigs.add(new Castle('b', 1, 8, "castle", '♜'));
         blackFigs.add(new Knight('b', 2, 8, "knight", '♞'));
         blackFigs.add(new Bishop('b', 3, 8, "bishop", '♝'));
@@ -25,7 +26,7 @@ public class Board {
             blackFigs.add(new Pawn('b', i, 7, "pawn", '♟'));
         }
         //add white figures on start game
-        whiteFigs = new ArrayList<Figure>();
+        whiteFigs = new ArrayList<>();
         whiteFigs.add(new Castle('w',1, 1, "castle", '♖'));
         whiteFigs.add(new Knight('w',2, 1, "knight", '♘'));
         whiteFigs.add(new Bishop('w',3, 1, "bishop", '♗'));
@@ -77,13 +78,15 @@ public class Board {
                 }
                 return true;
             }else {
-                System.out.println("---No moves--- for " + myFigures.get(rand).type +" X:" + myFigures.get(rand).positionX + " Y: " + myFigures.get(rand).positionY);
+                System.out.println("---No moves--- for " + myFigures.get(rand).type +" : " + numToSymbPosX(myFigures.get(rand).positionX) +  myFigures.get(rand).positionY);
                 myFigures.remove(myFigures.get(rand));
             }
         }
 
         return false;
     }
+
+
 
 
 }

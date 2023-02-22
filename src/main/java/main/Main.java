@@ -2,6 +2,8 @@ package main;
 
 import model.*;
 
+import static model.Logger.printBoard;
+
 public class Main {
     public static void main(String[] args) throws InterruptedException {
         int move = 0;
@@ -21,7 +23,5 @@ public class Main {
         printBoard(board,move,status);
     }
 
-    public static void printBoard(Board board, int move, String status){
-        System.out.printf(status + "\n");
-    }
+
 }
