@@ -16,6 +16,36 @@
         <maven.compiler.target>18</maven.compiler.target>
     </properties>
 
+    <profiles>
+        <profile>
+            <id>develop</id>
+            <properties>
+                <type>develop</type>
+                <mainClass>main.Main_dev</mainClass>
+            </properties>
+            <activation>
+                <property>
+                    <name>debug</name>
+                    <value>true</value>
+                </property>
+            </activation>
+        </profile>
+
+        <profile>
+            <id>release</id>
+            <properties>
+                <type>release</type>
+                <mainClass>main.Main</mainClass>
+            </properties>
+            <activation>
+                <property>
+                    <name>!debug</name>
+                </property>
+            </activation>
+        </profile>
+    </profiles>
+
+
     <dependencies>
         <dependency>
             <groupId>junit</groupId>
@@ -35,11 +65,19 @@
                     <archive>
                         <manifest>
                             <addClasspath>true</addClasspath>
-                            <mainClass>main.Main</mainClass>
+                            <!--suppress UnresolvedMavenProperty -->
+                            <mainClass>${mainClass}</mainClass>
                         </manifest>
                     </archive>
                 </configuration>
             </plugin>
         </plugins>
+
+        <resources>
+            <resource>
+                <directory>src/main/resources</directory>
+                <filtering>true</filtering>
+            </resource>
+        </resources>
     </build>
 </project>
